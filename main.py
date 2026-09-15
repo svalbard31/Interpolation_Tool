@@ -34,7 +34,6 @@ def lagrange_interpol_numpy(points,x):
 
 
 
-
 def test_func(x):
     return (0.5*(x**2))-(0.5*x)+1 
 
