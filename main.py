@@ -3,7 +3,16 @@ import numpy as np
 import numpy.polynomial as poly
 import time 
 
+
 points = [[0,1],[2,2],[3,4]]
+
+def pointsto_xy(points): 
+    xdata = []
+    ydata = []
+    for point in points: 
+        xdata.append(point[0])
+        ydata.append(point[0])
+    return xdata, ydata
 
 #n^{2} And has to be revaulted every time
 def lagrange_interpol_simple(points,x):
@@ -32,6 +41,8 @@ def lagrange_interpol_numpy(points):
         y += (points[i][1]/y2)*y1
     return y
 
+
+#Newton Divided Difference Calculate Table
 def newtondd(xdata,ydata): 
     interpolated= [ydata] 
     colum = ydata
@@ -45,6 +56,7 @@ def newtondd(xdata,ydata):
         interpolated.append(temp)
     return interpolated
 
+#Netwon divided diffrence create polynomial
 def netwoninterpret(interpolated,xdata): 
     function = poly.Polynomial([0])
     count = 0
@@ -58,13 +70,16 @@ def netwoninterpret(interpolated,xdata):
         function+=polypart
     return function
 
-interpo = newtondd([0,2,3],[1,2,4])
 
-f = netwoninterpret(interpo,[0,2,3])
+
+pointsxy = pointsto_xy(points)
+interpo = newtondd(pointsxy[0],pointsxy[1])
+
+f = netwoninterpret(interpo,pointsxy[0])
 print(f)
 
 
-
+#Correct function to compare against
 def test_func(x):
     return (0.5*(x**2))-(0.5*x)+1 
 
