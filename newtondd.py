@@ -50,12 +50,17 @@ class Newtondd:
 
     def addpoint(self,point): 
         temp = point[1]
+        if point[0] in self.xdata: 
+            print("points can't have same x value")
+            return
         for i in range(len(self.interpolated)):
             prevtemp = temp
             temp = (temp-self.interpolated[i][-1])/(point[0]-self.xdata[-1-i])
             self.interpolated[i].append(prevtemp)
         self.interpolated.append([temp])
         self.function = self.interpret()
+        self.xdata.append(point[0])
+        self.ydata.append(point[1])
         return self.function
 
     def deletepoint(self,point): 
