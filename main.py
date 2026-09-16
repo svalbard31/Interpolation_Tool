@@ -11,7 +11,7 @@ def pointsto_xy(points):
     ydata = []
     for point in points: 
         xdata.append(point[0])
-        ydata.append(point[0])
+        ydata.append(point[1])
     return xdata, ydata
 
 #n^{2} And has to be revaulted every time
