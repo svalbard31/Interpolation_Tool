@@ -55,7 +55,7 @@ class Newtondd:
             return
         for i in range(len(self.interpolated)):
             prevtemp = temp
-            print(f"{temp}")
+            #print(f"{temp}-{self.interpolated[i][-1]}/{point[0]}-{self.xdata[-1-i]}")
             temp = (temp-self.interpolated[i][-1])/(point[0]-self.xdata[-1-i])
             self.interpolated[i].append(prevtemp)
         self.interpolated.append([temp])
@@ -63,7 +63,11 @@ class Newtondd:
         self.xdata.append(point[0])
         self.ydata.append(point[1])
         return self.function
-
+    def printinterpolated(self):
+        #print the divided difference by collums
+        for i in self.interpolated: 
+            print(i)
+        
     def deletepoint(self,point): 
         for i in range(self.xdata): 
             if self.xdata == point[0] and self.ydata == point[1]: 

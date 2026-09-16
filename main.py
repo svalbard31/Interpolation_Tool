@@ -14,14 +14,12 @@ def f(x):
 points = [[0,0]]
 y = f(x)
 graph = plt.plot(x,y)[0]
-plt.show()
 Newtdd = Newtondd(points)
 while(True):
     # updating the data
     p = plt.ginput(1)[0]
     points.append(p)
-    print(points)
-    Newtdd = Newtondd(points)
+    Newtdd.addpoint(p)
     f = Newtdd.get_function()
     print(f)
     y = f(x)

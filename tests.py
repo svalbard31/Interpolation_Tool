@@ -46,8 +46,8 @@ def addingmultipoint():
     """Testing adding multibal points""" 
     points = [[0,1],[2,2]]
     Dividedd = Newtondd(points)
-    Dividedd.addpoint([1,0])
     Dividedd.addpoint([3,4])
+    Dividedd.addpoint([1,0])
     print(Dividedd.get_function())
     return  Dividedd.get_function().has_samecoef(poly.Polynomial([2,-1]))
 
