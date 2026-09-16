@@ -70,11 +70,24 @@ def netwoninterpret(interpolated,xdata):
         function+=polypart
     return function
 
+#Newton divided diffrence add point
+def newtonaddpoint(point,interpol,xdata):
+    temp = point[1]
+    for i in range(len(interpol)):
+        prevtemp = temp
+        print(f"({temp}-{interpo[i][-1]})/({point[0]}-{xdata[-1-i]})")
+        temp = (temp-interpo[i][-1])/(point[0]-xdata[-1-i])
+        interpol[i].append(prevtemp)
+    interpol.append([temp])
+    return interpol
+
+    
+    pass
 
 
 pointsxy = pointsto_xy(points)
 interpo = newtondd(pointsxy[0],pointsxy[1])
-
+print(newtonaddpoint([1,0],interpo.copy(),pointsxy[0]))
 f = netwoninterpret(interpo,pointsxy[0])
 print(f)
 
