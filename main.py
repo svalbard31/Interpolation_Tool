@@ -32,7 +32,36 @@ def lagrange_interpol_numpy(points):
         y += (points[i][1]/y2)*y1
     return y
 
+def newtondd(xdata,ydata): 
+    interpolated= [ydata] 
+    colum = ydata
+    counter = 1 
+    while len(colum)>1: 
+        temp = []
+        for i in range((len(colum)-1)): 
+            temp.append((colum[i+1]-colum[i])/(xdata[i+counter]-xdata[i]))
+        counter +=1
+        colum = temp
+        interpolated.append(temp)
+    return interpolated
 
+def netwoninterpret(interpolated,xdata): 
+    function = poly.Polynomial([0])
+    count = 0
+    for i in interpolated: 
+        polypart = poly.Polynomial([i[0]])
+        temp = poly.Polynomial([1])
+        for j in range(count): 
+            temp*=poly.Polynomial([-xdata[j],1])
+        count+=1
+        polypart *= temp
+        function+=polypart
+    return function
+
+interpo = newtondd([0,2,3],[1,2,4])
+
+f = netwoninterpret(interpo,[0,2,3])
+print(f)
 
 
 
@@ -52,6 +81,8 @@ end = time.time()
 funct = lagrange_interpol_numpy(points)
 print(funct)
 y = funct(x)
+ynewtdd = f(x)
 plt.plot(x,y)
 plt.plot(x,yfunc2,color = 'red')
+plt.plot(x,ynewtdd)
 plt.show()
