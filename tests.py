@@ -42,7 +42,14 @@ def E36():
     Dividedd = Newtondd(points)
     return  Dividedd.get_function().has_samecoef(poly.Polynomial([-1,1,-2,1]))
 
-
+def addingmultipoint():
+    """Testing adding multibal points""" 
+    points = [[0,1],[2,2]]
+    Dividedd = Newtondd(points)
+    Dividedd.addpoint([1,0])
+    Dividedd.addpoint([3,4])
+    print(Dividedd.get_function())
+    return  Dividedd.get_function().has_samecoef(poly.Polynomial([2,-1]))
 
 
 testfunctions =  [
@@ -52,6 +59,7 @@ testfunctions =  [
     E34,
     E35,
     E36,
+    addingmultipoint,
  ]
 
 

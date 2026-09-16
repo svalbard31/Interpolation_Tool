@@ -6,19 +6,22 @@ import numpy.polynomial as poly
 import time 
 
 
-x = np.linspace(-10,10,1000)
+x = np.linspace(-100,100,1000)
 plt.ion()
 def f(x): 
     return x
 
+points = [[0,0]]
 y = f(x)
 graph = plt.plot(x,y)[0]
 plt.show()
-Newtdd = Newtondd([[0,0]])
+Newtdd = Newtondd(points)
 while(True):
     # updating the data
     p = plt.ginput(1)[0]
-    Newtdd.addpoint(p)
+    points.append(p)
+    print(points)
+    Newtdd = Newtondd(points)
     f = Newtdd.get_function()
     print(f)
     y = f(x)

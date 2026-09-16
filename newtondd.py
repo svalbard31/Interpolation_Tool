@@ -55,6 +55,7 @@ class Newtondd:
             return
         for i in range(len(self.interpolated)):
             prevtemp = temp
+            print(f"{temp}")
             temp = (temp-self.interpolated[i][-1])/(point[0]-self.xdata[-1-i])
             self.interpolated[i].append(prevtemp)
         self.interpolated.append([temp])
