@@ -6,11 +6,13 @@ import numpy.polynomial as poly
 import time 
 
 
-x = np.linspace(-100,100,1000)
-plt.ion()
+x = np.linspace(-1000,1000,1000)
 def f(x): 
     return x
 
+plt.xlim(1000)
+plt.ylim(1000)
+plt.autoscale(False)
 points = [[0,0]]
 y = f(x)
 graph = plt.plot(x,y)[0]
@@ -27,7 +29,6 @@ while(True):
     
     # plotting newer graph
     graph = plt.plot(x,y,color = 'g')[0]
-    plt.xlim(x[0], x[-1])
     
     # calling pause function for 0.25 seconds
     plt.pause(0.25)
