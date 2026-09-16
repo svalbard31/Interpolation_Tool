@@ -10,10 +10,10 @@ class Newtondd:
         self.ydata = data[1]
         self.interpolated = []
         self.function = poly.Polynomial([0])
-        self.interpolate()
-        self.interpret()
+        self.interpolated = self.interpolate()
+        self.function = self.interpret()
 
-    def _pointsto_xy(points): 
+    def _pointsto_xy(self,points): 
         xdata = []
         ydata = []
         for point in points: 
@@ -52,7 +52,6 @@ class Newtondd:
         temp = point[1]
         for i in range(len(self.interpolated)):
             prevtemp = temp
-            print(f"({temp}-{self.interpolated[i][-1]})/({point[0]}-{self.xdata[-1-i]})")
             temp = (temp-self.interpolated[i][-1])/(point[0]-self.xdata[-1-i])
             self.interpolated[i].append(prevtemp)
         self.interpolated.append([temp])

@@ -81,10 +81,6 @@ def newtonaddpoint(point,interpol,xdata):
     interpol.append([temp])
     return interpol
 
-    
-    pass
-
-
 pointsxy = pointsto_xy(points)
 interpo = newtondd(pointsxy[0],pointsxy[1])
 print(newtonaddpoint([1,0],interpo.copy(),pointsxy[0]))
