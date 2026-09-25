@@ -6,12 +6,14 @@ import numpy.polynomial as poly
 import time 
 
 
-x = np.linspace(-1000,1000,1000)
+
+xborder = 1000
+yborder = 1000
+x = np.linspace(-xborder,xborder,100000)
 def f(x): 
     return x
-
-plt.xlim(1000)
-plt.ylim(1000)
+plt.xlim((-xborder,xborder))
+plt.ylim((-yborder,yborder))
 plt.autoscale(False)
 points = [[0,0]]
 y = f(x)
