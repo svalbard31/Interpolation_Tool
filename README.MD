@@ -1,22 +1,30 @@
 # MAT-2201 Uit 2026 Task: E; Interpolation Engine
-This is a work in progress interpolation demo. 
-## Task overview 
-### 1 
-Implement three ways to evaluate the interpolating polynomial: the Lagrange form (3.1) directly;
-the Newton form via newtdd + nest; and the Newton form with incremental updating, where
-adding one point adds one divided-difference row (Example 3.4). Checkpoint 1: reproduce
-Examples 3.1–3.6 with all three and check that they agree to machine precision.
+This is an interpolation Demo, with three parts
+## Requriments 
+The project is written in python
+The following external libraies are used, matplotlib, numpy, sympy
+If you don't have them use 
+```
+pip install matplotlib &
+pip install numpy &
+pip install sympy
+```
+## Parts 
+### Part 1 : Tests
+This is implemented in the file Tests.py.
+It creates a testing framework based on examples from the book (Numerical Anyalsis Second Edtion)
+There are 7 tests in total, 5 suceed and 2 fail. 
+The two that fail are because of rounding errors, both of the failures are smaller e-16. 
+### Part 2: Click To Interpolate
+This program allows the user to click to add points to an interpolation. 
+It uses Newton Divided Diffrence interpolation, and does not recalulate the entire table when adding points. 
+Instead using the method provided in the book, to reuse previous rows of the table
 
-### 2
-Count operations. For n nodes and m evaluation points, how many multiplications does each
-method need? Fill in a table for n = 5, 10, 50 and m = 1000, then measure actual timings and
-compare with your counts.
-
-### 3 
-Real-time updating: build the click-to-add tool. Adding the k-th point must reuse the previous k−1
-rows of the divided-difference table. Demonstrate it live.
-
-### 4 
+### Part 3: Rounding Errors and Chebysev Nodes 
+Found in Node.py. This program interpolates at e^x at Chebysev nodes for n=10, n=20, n=40. 
+It uses both lagrange and Newton interpolation. 
+It calculates and prints the errors for easy review and comparison, 
+### 4
 Exercises 3.1.7–3.1.10 and 3.1.13 look like heavy computations, but each has a one-line answer if
 you use the right idea. Present one of them as a puzzle to the audience.
 

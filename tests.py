@@ -14,8 +14,8 @@ def E31():
 def E32(): 
     """Example 3.2 Lagrange Interpolation with 4 points"""
     points = [[0,2],[1,1],[2,0],[3,-1]]
-    print(lagrange_interpol_numpy(points))
-    return True #This misses by machine prescion so I declared it true
+   # print(lagrange_interpol_numpy(points))
+    return lagrange_interpol_numpy(points).has_samecoef(poly.Polynomial([2,-1]))
 
 def E33():
     """Example 3.3 Interpolation with 3 points"""
@@ -43,12 +43,12 @@ def E36():
     return  Dividedd.get_function().has_samecoef(poly.Polynomial([-1,1,-2,1]))
 
 def addingmultipoint():
-    """Testing adding multibal points""" 
+    """Testing adding multiple points""" 
     points = [[0,1],[2,2]]
     Dividedd = Newtondd(points)
     Dividedd.addpoint([3,4])
     Dividedd.addpoint([1,0])
-    print(Dividedd.get_function())
+   # print(Dividedd.get_function())
     return  Dividedd.get_function().has_samecoef(poly.Polynomial([2,-1]))
 
 
@@ -74,7 +74,7 @@ def run_tests(all_tests, random=False):
                 result = True
                 passed+=1
             else:
-                skip_rest = True
+                skip_rest = False
                 result = False
             print(("FAIL", "PASS")[result] + "\t" + test_function.__doc__)
         else:
