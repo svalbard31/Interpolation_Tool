@@ -24,11 +24,3 @@ Instead using the method provided in the book, to reuse previous rows of the tab
 Found in Node.py. This program interpolates at e^x at Chebysev nodes for n=10, n=20, n=40. 
 It uses both lagrange and Newton interpolation. 
 It calculates and prints the errors for easy review and comparison, 
-### 4
-Exercises 3.1.7–3.1.10 and 3.1.13 look like heavy computations, but each has a one-line answer if
-you use the right idea. Present one of them as a puzzle to the audience.
-
-### 5 
-Accuracy: interpolate eˣ at n = 10, 20, 40 Chebyshev nodes and evaluate with the Lagrange form
-and the Newton form. Are the answers equal? Look at the size of the divided differences and of
-the Lagrange basis polynomials Lₖ. Which form is more sensitive to rounding, and where?
